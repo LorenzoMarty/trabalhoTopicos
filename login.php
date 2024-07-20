@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 $email = $_POST['email'];
 $senha = $_POST['senha'];
@@ -15,6 +16,7 @@ if($usuario == null){
     die();
 }
 if($senha == $usuario['senha']){
+    $_SESSION['email'] = $usuario['email'];
     header("Location: principal.php");
 }else{
     echo "Senha inválida! Tente novamente.";

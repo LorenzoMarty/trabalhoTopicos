@@ -14,7 +14,7 @@
 <body>
     <div class="container">
         <h1>Cadastrar</h1>
-        <form action="cadastrar.php" method="post">
+        <form action="cadastrar.php" method="post" enctype="multipart/form-data">
             <label for="nome">Nome:
                 <input type="text" name="nome">
             </label>

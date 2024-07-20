@@ -7,7 +7,7 @@ $email = $_POST['email'];
 $senha = $_POST['senha'];
 $nome = $_POST['nome'];
 
-$pastaDestino = "/uploads/";
+$pastaDestino = "/img/usuarios/";
 
 // verificar se o tamanho do arquivo é maior que 2 MB
 if ($_FILES['arquivo']['size'] > 2000000) {  // condição de guarda 👮
@@ -42,7 +42,7 @@ $fezUpload = move_uploaded_file(
     __DIR__ . $pastaDestino . $nomeArquivo . "." . $extensao
 );
 if ($fezUpload == true) {
-    $sql = "INSERT INTO usuarios(nome, email, senha, foto) VALUES ('$nome', '$email', '$senha', '$nomeArquivo.$extensao')";
+    $sql = "INSERT INTO usuario(nome, email, senha, foto) VALUES ('$nome', '$email', '$senha', '$nomeArquivo.$extensao')";
     $resultado = mysqli_query($conexao, $sql);
     if ($resultado != false) {
         // se for uma alteração de arquivo
