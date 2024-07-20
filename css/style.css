@@ -1,6 +1,5 @@
-
         body {
-            background-image: url("img/fundo.svg");
+            background-image: url("../img/fundo.svg");
             background-repeat: no-repeat, repeat-x;
             background-size: cover;
             display: flex;
