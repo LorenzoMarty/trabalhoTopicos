@@ -25,3 +25,12 @@ function executarSQL($conexao, $sql)
     }
     return $resultado;
 }
+function conectarUsuario($conexao)
+{
+    $sql = "SELECT * FROM usuario WHERE email='" . $_SESSION['email'] . "'";
+    $resultado = executarSQL($conexao, $sql);
+
+    $usuario = mysqli_fetch_assoc($resultado);
+
+    return $usuario;
+}

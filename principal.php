@@ -2,10 +2,7 @@
 
 require_once "conecta.php";
 $conexao = conectar();
-$sql = "SELECT * FROM usuario WHERE email='".$_SESSION['email']."'";
-$resultado = executarSQL($conexao, $sql);
-
-$usuario = mysqli_fetch_assoc($resultado);
+$usuario = conectarUsuario($conexao);
 
 ?>
 <!DOCTYPE html>
