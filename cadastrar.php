@@ -33,8 +33,11 @@ if (getimagesize($_FILES['arquivo']['tmp_name']) === false) {
     echo "Problemas ao enviar a imagem. Tente novamente.";
     die();
 }
-
+if(isset($_FILES['arquivo'])){
 $nomeArquivo = uniqid();
+}else{
+    $nomeArquivo = "usuario.png";
+}
 
 // se deu tudo certo até aqui, faz o upload
 $fezUpload = move_uploaded_file(
