@@ -55,7 +55,7 @@ try {
     $mail->Subject = 'Recuperação de Senha do Sistema';
     $mail->Body = 'Olá '.$usuario['nome'].', 
     Você solicitou o serviço de redefinição de senha. Por favor, clique no link para redefinir sua senha:
-<a href="'. $_SERVER['HTTP_HOST'] .'/recuperar_senha/recuperar_senha/nova-senha.php?email=' . $usuario['email'] .'&token=' . $token .'">Redefinir Senha</a>
+<a href="'. $_SERVER['HTTP_HOST'].'/trabalhoTopicos/nova-senha.php?email=' . $usuario['email'] .'&token=' . $token .'">Redefinir Senha</a>
     <br><br>Atenciosamente, Lorenzo!';
     
     $mail->send();
