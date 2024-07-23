@@ -7,6 +7,7 @@ $usuario = conectarUsuario($conexao);
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,10 +15,39 @@ $usuario = conectarUsuario($conexao);
     <link type="image/png" sizes="96x96" rel="icon" href="img/email.png">
     <title>Document</title>
 </head>
-<body>
-    <h1 class="logado">Seja Bem-vindo <?= $usuario['nome']; ?></h1>
-    <a href="form-editar.php">Editar</a>
-    <a href="fomr-excluir.php">Excluir</a>
+<style>
+    .logado {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        text-align: center;
+    }
 
+    .img {
+        width: 150px;
+        height: auto;
+    }
+
+    .container {
+        padding: 2em;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+        text-align: left;
+        width: 20%;
+        height: auto;
+    }
+</style>
+
+<body>
+    <div class="logado container">
+        <img class="img" src="img/usuarios/<?= $usuario['foto']; ?>" alt="Foto do Usuário" width="150px" height="auto">
+        <h1><?= $usuario['nome']; ?></h1>
+        <h2>Seja Bem-Vindo</h2>
+        <a href="form-editar.php">Editar</a>
+        <a href="excluir.php">Excluir</a>
+    </div>
 </body>
+
 </html>

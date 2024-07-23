@@ -13,6 +13,7 @@ $usuario = conectarUsuario($conexao);
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet' />
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/image.css">
+    <link rel="stylesheet" href="css/form.css">
     <link type="image/png" sizes="96x96" rel="icon" href="img/email.png">
     <title>Document</title>
 </head>
@@ -20,7 +21,7 @@ $usuario = conectarUsuario($conexao);
 <body>
     <div class="container">
         <h1>Editar</h1>
-        <form action="cadastrar.php" method="post" enctype="multipart/form-data">
+        <form action="editar.php" method="post" enctype="multipart/form-data">
             <label for="nome">Nome:
                 <input type="text" name="nome" value="<?= $usuario['nome']; ?>">
             </label>

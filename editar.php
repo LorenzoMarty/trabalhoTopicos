@@ -6,7 +6,6 @@ $conexao = conectar();
 $email = $_POST['email'];
 $senha = $_POST['senha'];
 $nome = $_POST['nome'];
-$idusuario = $_POST['idusuario'];
 
 $pastaDestino = "/img/usuarios/";
 
@@ -46,7 +45,7 @@ if ($_FILES['arquivo'] != "") {
         __DIR__ . $pastaDestino . $nomeArquivo . "." . $extensao
     );
     if ($fezUpload == true) {
-        $sql = "UPDATE `usuario` SET `email`='$email',`nome`='$nome',`senha`='$senha',`foto`='$nomeArquivo' WHERE $idusuario";
+        $sql = "UPDATE `usuario` SET `nome`='$nome',`senha`='$senha',`foto`='$nomeArquivo.$extensao' WHERE email='$email'";
         $resultado = mysqli_query($conexao, $sql);
         if ($resultado != false) {
             // se for uma alteração de arquivo

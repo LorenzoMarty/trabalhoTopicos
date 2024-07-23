@@ -7,6 +7,7 @@
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet' />
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/image.css">
+    <link rel="stylesheet" href="css/form.css">
     <link type="image/png" sizes="96x96" rel="icon" href="img/email.png">
     <title>Login</title>
 </head>
