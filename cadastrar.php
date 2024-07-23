@@ -17,7 +17,9 @@ if ($_FILES['arquivo']['size'] > 2000000) {  // condição de guarda 👮
 
 // verificar se o arquivo é uma imagem
 $extensao = strtolower(pathinfo($_FILES['arquivo']['name'], PATHINFO_EXTENSION));
-
+if(!isset($_FILES['arquivo'])){
+    $nomeArquivo = "usuario.png";
+}
 if (
     $extensao != "png" && $extensao != "jpg" &&
     $extensao != "jpeg" && $extensao != "gif" &&
@@ -33,11 +35,8 @@ if (getimagesize($_FILES['arquivo']['tmp_name']) === false) {
     echo "Problemas ao enviar a imagem. Tente novamente.";
     die();
 }
-if(isset($_FILES['arquivo'])){
+
 $nomeArquivo = uniqid();
-}else{
-    $nomeArquivo = "usuario.png";
-}
 
 // se deu tudo certo até aqui, faz o upload
 $fezUpload = move_uploaded_file(
