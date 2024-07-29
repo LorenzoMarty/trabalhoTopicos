@@ -46,7 +46,7 @@ $usuario = conectarUsuario($conexao);
         <h1><?= $usuario['nome']; ?></h1>
         <h2>Seja Bem-Vindo</h2>
         <a href="form-editar.php">Editar</a>
-        <a href="excluir.php">Excluir</a>
+        <a href="excluir.php?email=<?= $usuario['email']; ?>">Excluir</a>
     </div>
 </body>
 
