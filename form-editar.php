@@ -25,9 +25,9 @@ $usuario = conectarUsuario($conexao);
             <label for="nome">Nome:
                 <input type="text" name="nome" value="<?= $usuario['nome']; ?>">
             </label>
-            <label for="email">Email:
-                <input type="text" name="email" value="<?= $usuario['email']; ?>">
-            </label>
+            
+                <input type="hidden" name="email" value="<?= $usuario['email']; ?>">
+            
             <label for="senha">Senha:
                 <input type="password" name="senha" value="<?= $usuario['senha']; ?>">
             </label>

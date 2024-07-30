@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require_once "conecta.php";
 $conexao = conectar();
 
@@ -9,8 +9,10 @@ $nome = $_POST['nome'];
 
 $pastaDestino = "/img/usuarios/";
 
+$usuario = conectarUsuario($conexao);
+
 if ($_FILES['arquivo']['name'] == '') {
-    $nomeArquivo = "Usuario.png";
+    $nomeArquivo = $usuario['foto'];
 } else {
     // verificar se o tamanho do arquivo é maior que 2 MB
     if ($_FILES['arquivo']['size'] > 2000000) {  // condição de guarda 👮
@@ -18,17 +20,10 @@ if ($_FILES['arquivo']['name'] == '') {
         die();
     }
 
-    if (!isset($_FILES['arquivo'])) {
-        $nomeArquivo = $usuario['foto'];
-    } else {
-        $nomeArquivo = "usuario.png";
-    }
 
     // verificar se o arquivo é uma imagem
     $extensao = strtolower(pathinfo($_FILES['arquivo']['name'], PATHINFO_EXTENSION));
-    if (!isset($_FILES['arquivo'])) {
-        $nomeArquivo = "usuario.png";
-    }
+
     if (
         $extensao != "png" && $extensao != "jpg" &&
         $extensao != "jpeg" && $extensao != "gif" &&
@@ -45,13 +40,15 @@ if ($_FILES['arquivo']['name'] == '') {
         die();
     }
 
+    $nomeArquivo = uniqid() . $extensao;
+
     // se deu tudo certo até aqui, faz o upload
     $fezUpload = move_uploaded_file(
         $_FILES['arquivo']['tmp_name'],
         __DIR__ . $pastaDestino . $nomeArquivo . "." . $extensao
     );
 }
-$sql = "UPDATE `usuario` SET `nome`='$nome',`senha`='$senha',`foto`='$nomeArquivo.$extensao' WHERE email='$email'";
+$sql = "UPDATE `usuario` SET `nome`='$nome',`senha`='$senha',`foto`='$nomeArquivo' WHERE email='$email'";
 $resultado = mysqli_query($conexao, $sql);
 if ($resultado != false) {
     // se for uma alteração de arquivo

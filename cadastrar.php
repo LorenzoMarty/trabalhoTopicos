@@ -18,7 +18,6 @@ if (($_FILES['arquivo']['name'] == '')) {
         die();
     }
 
-    $nomeArquivo = uniqid();
 
 
     // verificar se o arquivo é uma imagem
@@ -39,6 +38,7 @@ if (($_FILES['arquivo']['name'] == '')) {
         die();
     }
 
+    $nomeArquivo = uniqid() . $extensao;
 
     // se deu tudo certo até aqui, faz o upload
     $fezUpload = move_uploaded_file(
@@ -46,26 +46,26 @@ if (($_FILES['arquivo']['name'] == '')) {
         __DIR__ . $pastaDestino . $nomeArquivo . "." . $extensao
     );
 }
-    $sql = "INSERT INTO usuario(nome, email, senha, foto) VALUES ('$nome', '$email', '$senha', '$nomeArquivo.$extensao')";
-    $resultado = mysqli_query($conexao, $sql);
-    if ($resultado != false) {
-        // se for uma alteração de arquivo
-        if (isset($_POST['arquivo'])) {
-            $apagou = unlink(__DIR__ . $pastaDestino . $_POST['arquivo']);
-            if ($apagou == true) {
-                $sql = "DELETE FROM usuarios WHERE foto='"
-                    . $_POST['arquivo'] . "'";
-                $resultado2 = mysqli_query($conexao, $sql);
-                if ($resultado2 == false) {
-                    echo "Erro ao apagar o arquivo do banco de dados.";
-                    die();
-                }
-            } else {
-                echo "Erro ao apagar o arquivo antigo.";
+$sql = "INSERT INTO usuario(nome, email, senha, foto) VALUES ('$nome', '$email', '$senha', '$nomeArquivo')";
+$resultado = mysqli_query($conexao, $sql);
+if ($resultado != false) {
+    // se for uma alteração de arquivo
+    if (isset($_POST['arquivo'])) {
+        $apagou = unlink(__DIR__ . $pastaDestino . $_POST['arquivo']);
+        if ($apagou == true) {
+            $sql = "DELETE FROM usuarios WHERE foto='"
+                . $_POST['arquivo'] . "'";
+            $resultado2 = mysqli_query($conexao, $sql);
+            if ($resultado2 == false) {
+                echo "Erro ao apagar o arquivo do banco de dados.";
                 die();
             }
+        } else {
+            echo "Erro ao apagar o arquivo antigo.";
+            die();
         }
-        header("Location: index.php");
-    } else {
-        echo "Erro ao registrar o arquivo no banco de dados.";
     }
+    header("Location: index.php");
+} else {
+    echo "Erro ao registrar o arquivo no banco de dados.";
+}
