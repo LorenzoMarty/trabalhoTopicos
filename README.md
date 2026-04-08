@@ -1,28 +1,51 @@
-# Trabalho Tópicos
-
-## 🔍 Descrição
+# Trabalho Tópicos - *⚠️ Projeto Legado* - *⚠️ Projeto Legado*
 
 Este projeto é uma aplicação web desenvolvida durante o curso de técnico em informática. Ele permite o gerenciamento de usuários, incluindo funcionalidades de cadastro, login, edição e exclusão de contas, tendo o foco na funcionalidade de recuperação de senha.
 
-## 🚀 Funcionalidades
+## Funcionalidades
 
-- **Cadastro de usuários**: Permite que novos usuários se registrem no sistema.
-- **Login seguro**: Autenticação de usuários com verificação de credenciais.
-- **Edição de perfil**: Usuários podem atualizar suas informações pessoais.
-- **Exclusão de conta**: Opção para os usuários removerem suas contas do sistema.
-- **Recuperação de senha**: Processo para redefinir senhas esquecidas.
+- Permite que novos usuários se registrem no sistema.
+- Autenticação de usuários com verificação de credenciais.
+- Usuários podem atualizar suas informações pessoais.
+- Opção para os usuários removerem suas contas do sistema.
+- Processo para redefinir senhas esquecidas.
 
-## 🛠️ Tecnologias Utilizadas
+## Diferencial
+
+O sistema foi pensado para:
+- Desenvolver um login completo
+- Recuperação de senha através do email
+
+## Arquitetura
+
+Fluxo principal:
+
+1. Usuário se registra
+2. Usuário loga e desloga
+3. Usuário tenta recuperar senha
+4. Sistema manda link para recuperar no email do email cadastrado
+5. Usuário acessa link e muda a senha
+
+## Instalação
+
+```bash
+   git clone https://github.com/LorenzoMarty/trabalhoTopicos.git
+   a pasta clonada é inserida no servidor php
+```
+
+## Executando o Projeto
+
+acesse a url da index.php do sistema
+
+## Tecnologias
 
 - PHP
-- HTML5
-- CSS3
+- HTML
+- CSS
 - JavaScript
-- PHPMailer (para envio de e-mails)
+- PHPMailer
 
-## 📦 Instalação
+## Autor
 
-1. Clone este repositório:
-
-   ```bash
-   git clone https://github.com/LorenzoMarty/trabalhoTopicos.git
+**Lorenzo Marty**\
+GitHub: https://github.com/LorenzoMarty
