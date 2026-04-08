@@ -1,4 +1,4 @@
-# Trabalho Tópicos - *⚠️ Projeto Legado* - *⚠️ Projeto Legado*
+# Trabalho Tópicos - *⚠️ Projeto Legado*
 
 Este projeto é uma aplicação web desenvolvida durante o curso de técnico em informática. Ele permite o gerenciamento de usuários, incluindo funcionalidades de cadastro, login, edição e exclusão de contas, tendo o foco na funcionalidade de recuperação de senha.
 
